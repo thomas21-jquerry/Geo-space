@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Map from './components/Map';
 import FileUpload from './components/FileUpload';
-import Signup from './components/Signup';
+import Signup from './components/SignUp';
 import Login from './components/Login';
 import axios from 'axios';
 
