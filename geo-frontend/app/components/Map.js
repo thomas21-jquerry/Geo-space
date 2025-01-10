@@ -65,10 +65,10 @@ const Map = ({ datasets, onShapeDrawn }) => {
         const shapeType = shape.geometry.type;
 
         if (shapeType === 'Polygon') {
-          const areaInSquareMeters = turf.area(shape); // Calculate area using Turf.js
-          const rounded = Math.round(areaInSquareMeters * 100) / 100; // Round area to 2 decimal places
-          const areaKm = rounded / 1_000_000; // Convert to square kilometers
-          setRoundedArea(areaKm); // Update the area state
+          const areaInSquareKmMeters = turf.area(shape); // Calculate area using Turf.js
+          const rounded = Math.round(areaInSquareKmMeters * 100) / 100; // Round area to 2 decimal places
+
+          setRoundedArea(rounded); // Update the area state
           setLineLengthKm(null); 
           setLineLengthMiles(null);// Clear line length state
           setPoints([])
@@ -184,7 +184,7 @@ const Map = ({ datasets, onShapeDrawn }) => {
               <p style={{ fontSize: '12px', color: '#555', margin: '0' }}>
                 kilometers
               </p>
-              <p style={{ fontSize: '16px', fontWeight: '500', margin: '5px 0' }}>
+              <p style={{ fontSize: '16px',color: '#555', fontWeight: '500', margin: '5px 0' }}>
                 <strong>{lineLengthMiles}</strong>
               </p>
               <p style={{ fontSize: '12px', color: '#555', margin: '0' }}>

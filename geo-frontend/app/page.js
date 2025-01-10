@@ -1,5 +1,5 @@
-"use client"
-import { useState } from 'react';
+"use client";
+import { useState, useEffect } from 'react';
 import Map from './components/Map';
 import FileUpload from './components/FileUpload';
 import Signup from './components/Signup';
@@ -8,8 +8,16 @@ import axios from 'axios';
 
 const HomePage = () => {
   const [datasets, setDatasets] = useState([]);
-  const [token, setToken] = useState(localStorage.getItem('token') || null); // Get token from localStorage
+  const [token, setToken] = useState(null); // Initialize as null (no localStorage reference during SSR)
   const [isSignup, setIsSignup] = useState(false); // Toggle between Signup and Login
+
+  // Use useEffect to safely access localStorage on the client-side
+  useEffect(() => {
+    const savedToken = localStorage.getItem('token');
+    if (savedToken) {
+      setToken(savedToken);
+    }
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   const handleSignupSuccess = (token) => {
     setToken(token);
@@ -92,7 +100,6 @@ const styles = {
     backgroundColor: '#fafafa',
     textAlign: 'center',
   },
-  // Enhanced Button Styles
   button: {
     backgroundColor: '#007BFF',
     color: '#fff',
@@ -103,7 +110,7 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
     marginTop: '10px',
-    margin: "10px",
+    margin: '10px',
   },
   buttonHover: {
     backgroundColor: '#0056b3', // Darker shade for hover
