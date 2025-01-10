@@ -1,5 +1,7 @@
 # GEO - SPACE
 This project is a web application for managing geospatial data. It allows users to upload files, visualize the data on a map, and perform geospatial operations. The application includes features for user authentication (login and signup) and file upload functionality with a geo-data focus.
+
+![Image Alt Text](./geo-frontend/public/screenShot.png)
 ## Project Setup
 1. Clone the Project
 ```
