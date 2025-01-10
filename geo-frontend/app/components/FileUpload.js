@@ -84,71 +84,71 @@ const FileUpload = ({ onFileUploaded }) => {
 };
 
 const styles = {
-  fileUploadSection: {
-    margin: '20px auto',
-    padding: '25px',
-    borderRadius: '8px',
-    backgroundColor: '#ffffff',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-    textAlign: 'center',
-    width: '100%',
-    maxWidth: '500px',
-  },
-  fileInput: {
-    display: 'none', // Hide the default file input
-  },
-  chooseFileButton: {
-    backgroundColor: '#28a745', // Green background for 'Choose File' button
-    color: '#fff',
-    padding: '12px 30px',
-    border: 'none',
-    borderRadius: '8px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-    marginTop: '10px',
-    display: 'inline-block',
-  },
-  fileUploadButton: {
-    backgroundColor: '#007BFF',
-    color: '#fff',
-    padding: '12px 30px',
-    border: 'none',
-    borderRadius: '8px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-    marginTop: '15px',
-    width: '100%',
-    maxWidth: '250px',
-  },
-  fileUploadButtonHover: {
-    backgroundColor: '#0056b3',
-    transform: 'scale(1.05)',
-  },
-  fileNameContainer: {
-    marginTop: '15px',
-    padding: '12px',
-    border: '1px solid #007BFF',
-    borderRadius: '8px',
-    backgroundColor: '#f1f8ff',
-    textAlign: 'center',
-    fontSize: '14px',
-    color: '#333',
-    fontWeight: '500',
-  },
-  fileNameText: {
-    fontSize: '16px',
-    color: '#444',
-    fontWeight: 'bold',
-    wordWrap: 'break-word',
-  },
-  message: {
-    marginTop: '15px',
-    fontSize: '16px',
-    color: '#ff5733', // Error message color
-    fontWeight: '500',
-  },
-};
+    fileUploadSection: {
+      margin: '20px auto',
+      padding: '25px',
+      borderRadius: '8px',
+      backgroundColor: '#ffffff',
+      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+      textAlign: 'center',
+      width: '100%',
+      maxWidth: '500px',
+    },
+    fileInput: {
+      display: 'none', // Hide the default file input
+    },
+    chooseFileButton: {
+      backgroundColor: '#28a745', // Green background for 'Choose File' button
+      color: '#fff',
+      padding: '12px 30px',
+      border: 'none',
+      borderRadius: '8px',
+      fontSize: '16px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s ease',
+      marginTop: '10px',
+      marginRight: '10px',
+      display: 'inline-block',
+      marginBottom: '30px',  // Increased margin-bottom to create more space
+    },
+    fileUploadButton: {
+      backgroundColor: '#007BFF',
+      color: '#fff',
+      padding: '12px 30px',
+      border: 'none',
+      borderRadius: '8px',
+      fontSize: '16px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s ease',
+      marginTop: '20px', // Increased marginTop for more space between buttons
+      width: '100%',
+      maxWidth: '250px',
+    },
+    fileNameContainer: {
+      marginTop: '25px',  // Increased top margin to separate from other elements
+      padding: '12px',
+      border: '1px solid #007BFF',
+      borderRadius: '8px',
+      backgroundColor: '#f1f8ff',
+      textAlign: 'center',
+      fontSize: '14px',
+      color: '#333',
+      fontWeight: '500',
+    },
+    fileNameText: {
+      fontSize: '16px',
+      color: '#444',
+      fontWeight: 'bold',
+      wordWrap: 'break-word',
+    },
+    message: {
+      marginTop: '20px', // Added more space from the file name or upload button
+      fontSize: '16px',
+      color: '#ff5733', // Error message color
+      fontWeight: '500',
+    },
+  };
+  
+  
 
 export default FileUpload;

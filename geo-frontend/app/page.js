@@ -103,6 +103,7 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color 0.3s ease',
     marginTop: '10px',
+    margin: "10px",
   },
   buttonHover: {
     backgroundColor: '#0056b3', // Darker shade for hover
