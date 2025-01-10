@@ -1,4 +1,3 @@
-// app/components/FileUpload.js
 "use client"
 import { useState } from 'react';
 import axios from 'axios';
@@ -22,15 +21,24 @@ const FileUpload = ({ onFileUploaded }) => {
     const formData = new FormData();
     formData.append('file', file);
 
+    // Get the JWT token from localStorage (or wherever it's stored)
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+      setMessage('You must be logged in to upload files');
+      return;
+    }
+
     try {
       const response = await axios.post('http://localhost:3001/api/files/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${token}`,  // Include the JWT token in the header
         },
       });
 
       if (response.status === 200) {
-        console.log(response.data, "from server")
+        console.log(response.data, "from server");
         // Assuming the response contains the uploaded dataset (GeoJSON data)
         const dataset = {
           id: response.data.dataset.id,
