@@ -71,7 +71,7 @@ const Map = ({ datasets, onShapeDrawn }) => {
           setRoundedArea(areaKm); // Update the area state
           setLineLengthKm(null); 
           setLineLengthMiles(null);// Clear line length state
-          setPoints(null)
+          setPoints([])
         } else if (shapeType === 'LineString') {
           const lengthInKMeters = turf.length(shape); // Calculate length using Turf.js
           const rounded = Math.round(lengthInKMeters * 100) / 100; // Round length to 2 decimal places
@@ -80,7 +80,7 @@ const Map = ({ datasets, onShapeDrawn }) => {
           setLineLengthKm(rounded); // Update the line length state
           setLineLengthMiles(roundedMiles)
           setRoundedArea(null); // Clear area state
-          setPoints(null)
+          setPoints([])
         }
         else if (shapeType === 'Point') {
             // Handle point shape (marker) logic
@@ -168,7 +168,7 @@ const Map = ({ datasets, onShapeDrawn }) => {
         <div id="calculated-area">
           {roundedArea !== null && (
             <div>
-              <p style={{ fontSize: '16px', fontWeight: '500', margin: '5px 0' }}>
+              <p style={{ fontSize: '16px', color: '#555',fontWeight: '500', margin: '5px 0' }}>
                 <strong>{roundedArea}</strong>
               </p>
               <p style={{ fontSize: '12px', color: '#555', margin: '0' }}>
@@ -178,7 +178,7 @@ const Map = ({ datasets, onShapeDrawn }) => {
           )}
           {lineLengthKm !== null && (
             <div>
-              <p style={{ fontSize: '16px', fontWeight: '500', margin: '5px 0' }}>
+              <p style={{ fontSize: '16px', color: '#555',fontWeight: '500', margin: '5px 0' }}>
                 <strong>{lineLengthKm}</strong>
               </p>
               <p style={{ fontSize: '12px', color: '#555', margin: '0' }}>
@@ -194,10 +194,10 @@ const Map = ({ datasets, onShapeDrawn }) => {
           )}
           {points.length > 0 && (
             <div>
-              <p style={{ fontSize: '16px', fontWeight: '500', margin: '5px 0' }}>
+              <p style={{ fontSize: '16px',fontWeight: '900', margin: '5px 0' }}>
                 <strong></strong> Point Coordinates:
               </p>
-              <p style={{ fontSize: '12px', color: '#555', margin: '0' }}>
+              <p style={{ fontSize: '12px',color: '#555', margin: '0' }}>
               <strong>{`Longitude: ${points[0].coordinates[0]}, Latitude: ${points[0].coordinates[1]}`}</strong>
               </p>
             </div>
