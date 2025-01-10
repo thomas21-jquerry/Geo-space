@@ -6,6 +6,7 @@ const geojson = require('geojson');  // Assuming GeoJSON processing library
 const { parseString } = require('xml2js'); // For KML parsing (example)
 const tiff = require('tiff');  // For TIFF parsing (optional, depends on your needs)
 const geojsonValidation = require('geojson-validation');
+const authenticate = require('../middleware/auth'); // Import authentication middleware
 
 // Initialize Express Router
 const router = express.Router();
@@ -49,13 +50,13 @@ const processGeoJSON = (filePath) => {
     const fileData = fs.readFileSync(filePath, 'utf8');
     const geojsonData = JSON.parse(fileData);
         
-        // Simple validation (checks for required fields)
-        if (geojsonData && geojsonData.type === 'FeatureCollection' && Array.isArray(geojsonData.features)) {
-            console.log('Valid GeoJSON!');
-             // Return the parsed GeoJSON data
-        } else {
-            console.error('Invalid GeoJSON structure!');
-        }
+    // Simple validation (checks for required fields)
+    if (geojsonData && geojsonData.type === 'FeatureCollection' && Array.isArray(geojsonData.features)) {
+        console.log('Valid GeoJSON!');
+        // Return the parsed GeoJSON data
+    } else {
+        console.error('Invalid GeoJSON structure!');
+    }
     return JSON.parse(fileData); // Return the parsed GeoJSON data
 };
 
@@ -81,8 +82,8 @@ const processTIFF = (filePath) => {
     return geojsonData;
 };
 
-// Route to handle file upload
-router.post('/upload', upload.single('file'), (req, res) => {
+// Route to handle file upload (with authentication middleware)
+router.post('/upload', authenticate, upload.single('file'), (req, res) => {
     try {
         if (!req.file) {
             return res.status(400).send({ error: 'No file uploaded.' });

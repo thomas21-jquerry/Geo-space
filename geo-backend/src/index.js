@@ -3,7 +3,8 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const { Pool } = require('pg');
 const path = require('path');
-const fileRoutes = require('./routes/fileRoutes'); // Import the file upload routes
+const fileRoutes = require('./routes/fileRoutes'); 
+const authRoutes = require('./routes/authRoutes')
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 
 // Use the fileRoutes for handling file upload
 app.use('/api/files', fileRoutes); // Handles the file upload API
-
+app.use('/api/auth', authRoutes );
 // Start the server
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
