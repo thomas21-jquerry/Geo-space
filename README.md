@@ -24,3 +24,6 @@ This project is a web application for managing geospatial data. It allows users 
    npm run dev
    ```
 8. Enjoy 
+
+Detailed Explanation Video:
+https://drive.google.com/file/d/19PghhL4muRTN6HkfWAxvXoJeORd2RJyn/view?usp=drive_link
